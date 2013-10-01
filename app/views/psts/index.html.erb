@@ -1,0 +1,14 @@
+<h1>Welcome to the blog</h1>
+
+<% @psts.each do |pst| %>
+<h2><%= link_to pst.title, pst %></h2>
+<p>
+  <%= time_ago_in_words pst.created_at %> ago
+</p>
+<p>
+  <%= truncate pst.body %>
+</p>
+<% end %>
+<p>
+  <%= link_to "New post", new_pst_path %>
+</p>
