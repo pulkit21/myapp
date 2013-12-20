@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
+  before_filter :authenticate_user!, except: [:index, :show]
   def index
     @comments = Comment.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @comments }
@@ -14,7 +14,6 @@ class CommentsController < ApplicationController
   # GET /comments/1.json
   def show
     @comment = Comment.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @comment }
@@ -25,7 +24,6 @@ class CommentsController < ApplicationController
   # GET /comments/new.json
   def new
     @comment = Comment.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @comment }
@@ -51,7 +49,6 @@ class CommentsController < ApplicationController
   # PUT /comments/1.json
   def update
     @comment = Comment.find(params[:id])
-
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
         format.html { redirect_to @comment, :notice => 'Comment was successfully updated.' }
@@ -68,9 +65,6 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-
-   
-   redirect_to @comment.pst
-  
+    redirect_to @comment.pst
   end
 end

@@ -1,0 +1,21 @@
+---
+applications:
+  .:
+    name: blogpost
+    framework:
+      name: rails3
+      info:
+        mem: 256M
+        description: Rails Application
+        exec: 
+    infra: aws
+    url: ${name}.${target-base}
+    mem: 256M
+    instances: 1
+    services:
+      mysql-27c37:
+        type: mysql
+      mysql-0376:
+        type: mysql
+      mysql-1f8b2:
+        type: mysql

@@ -1,5 +1,6 @@
 class PstsController < ApplicationController
 
+  before_filter :authenticate_user!, except: [:index, :show]
  
   # GET /psts
   # GET /psts.json
@@ -47,7 +48,7 @@ class PstsController < ApplicationController
 
     respond_to do |format|
       if @pst.save
-        format.html { redirect_to @pst, :notice => 'Pst was successfully created.' }
+        format.html { redirect_to @pst, :notice => 'Post was successfully created.' }
         format.json { render :json => @pst, :status => :created, :location => @pst }
       else
         format.html { render :action => "new" }
@@ -63,7 +64,7 @@ class PstsController < ApplicationController
 
     respond_to do |format|
       if @pst.update_attributes(params[:pst])
-        format.html { redirect_to @pst, :notice => 'Pst was successfully updated.' }
+        format.html { redirect_to @pst, :notice => 'Post was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
