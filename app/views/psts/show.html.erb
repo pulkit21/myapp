@@ -8,16 +8,17 @@
 	|
 	<%= link_to "Delete", @pst, :method => :delete, :confirm => "are you sure ?" %>
 </p>
+
 <h2>Comments</h2>
 <% @pst.comments.each do |comment| %>
-<p><%= comment.body %></p>
-<p><%= time_ago_in_words comment.created_at %> ago</p>
-<p><%= link_to "Delete comment", [@pst, comment], :method =>:delete, :confirm => "Are you sure ?" %></p>
+	<p><%= comment.body %></p>
+	<p><%= time_ago_in_words comment.created_at %> ago</p>
+	<p><%= link_to "Delete comment", [@pst, comment], :method =>:delete, :confirm => "Are you sure ?" %></p>
 <% end %>
+
 <%= form_for [@pst, @pst.comments.build] do |f| %>
-<p><%= f.text_area :body, :size => '40x10' %></p>
-<p><%= f.submit "Post comment" %></p>
- 
+	<p><%= f.text_area :body, :size => '40x10' %></p>
+	<p><%= f.submit "Post comment" %></p>
 <% end %>
 
 

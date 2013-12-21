@@ -29,3 +29,12 @@ production:
   pool: 5
   username: root
   password: newpwd
+
+proxied-appfog:
+  adapter: mysql2 
+  username : uavr5sQMijn2V
+  password : px8CSfsl2aWZ6
+  name : dbcefcd9bbfcc44999274f8891cf41868
+  infra : aws
+  port: 10000 
+  host: 127.0.0.1

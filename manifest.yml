@@ -13,9 +13,5 @@ applications:
     mem: 256M
     instances: 1
     services:
-      mysql-27c37:
-        type: mysql
-      mysql-0376:
-        type: mysql
-      mysql-1f8b2:
+      mysql-5fe30:
         type: mysql
