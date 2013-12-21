@@ -1,6 +1,6 @@
 <h1><%= @pst.title %></h1>
 <%= @pst.body %>
-
+<p><%= Time.now.strftime("%m/%d/%Y") %> (<%= time_ago_in_words @pst.created_at %> ago) </p>
 <p>
 	<%= link_to "Back", psts_path %>
 	|
@@ -12,7 +12,7 @@
 <h2>Comments</h2>
 <% @pst.comments.each do |comment| %>
 	<p><%= comment.body %></p>
-	<p><%= time_ago_in_words comment.created_at %> ago</p>
+	<p><%= Time.now.strftime("%m/%d/%Y") %> (<%= time_ago_in_words @pst.created_at %> ago) </p>
 	<p><%= link_to "Delete comment", [@pst, comment], :method =>:delete, :confirm => "Are you sure ?" %></p>
 <% end %>
 

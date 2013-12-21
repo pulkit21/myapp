@@ -16,7 +16,7 @@ class PstsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create pst" do
+  test "should create post" do
     assert_difference('Pst.count') do
       post :create, :pst => { :body => @pst.body, :title => @pst.title }
     end

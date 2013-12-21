@@ -8,5 +8,6 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   validates_uniqueness_of :username
   validates_presence_of :username
-
+  has_many :psts
+  has_and_belongs_to_many :comments
 end
