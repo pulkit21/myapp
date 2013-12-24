@@ -17,19 +17,24 @@ ActiveRecord::Schema.define(:version => 20131220094419) do
     t.string   "name"
     t.text     "body"
     t.integer  "pst_id"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   add_index "comments", ["pst_id"], :name => "index_comments_on_pst_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "psts", :force => true do |t|
     t.string   "title"
     t.text     "body"
-    t.date     "publish_date"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.integer  "user_id"
+    t.boolean  "published",  :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
+
+  add_index "psts", ["user_id"], :name => "index_psts_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
