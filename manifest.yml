@@ -1,7 +1,7 @@
 ---
 applications:
   .:
-    name: blogpost
+    name: whounfollowedme
     framework:
       name: rails3
       info:
@@ -13,5 +13,5 @@ applications:
     mem: 256M
     instances: 1
     services:
-      mysql-5d460:
+      mysql-6b32a:
         type: mysql

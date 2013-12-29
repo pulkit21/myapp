@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131220094419) do
+ActiveRecord::Schema.define(:version => 20131227115730) do
 
   create_table "comments", :force => true do |t|
     t.string   "name"
@@ -36,6 +36,14 @@ ActiveRecord::Schema.define(:version => 20131220094419) do
 
   add_index "psts", ["user_id"], :name => "index_psts_on_user_id"
 
+  create_table "twitter_oauth_settings", :force => true do |t|
+    t.string   "atoken"
+    t.string   "asecret"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
@@ -54,6 +62,14 @@ ActiveRecord::Schema.define(:version => 20131220094419) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "username"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "screen_name"
+    t.string   "url"
+    t.string   "profile_image_url"
+    t.string   "location"
+    t.string   "description"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

@@ -8,6 +8,11 @@ gem 'rails', '3.2.13'
 gem 'mysql2'
 gem 'cancan'
 gem 'devise'
+gem 'omniauth-twitter'
+gem 'twitter'
+gem 'twitter-console'
+gem 'omniauth'
+gem 'oauth'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -36,3 +41,14 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+# To use commandline twitter tool
+gem 't'
+gem 'tweet-button'
+
+# For debugging 
+gem 'debugger', group: [:development, :test]
+gem 'spring' , group: [:development, :test]
+gem 'awesome_print', group: [:development, :test]
+gem "binding_of_caller", group: [:development, :test]
+gem 'better_errors', group: [:development, :test]
